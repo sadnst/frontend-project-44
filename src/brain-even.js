@@ -14,7 +14,7 @@ const isEven = () => {
     console.log('Answer "yes" if the number is even, otherwise answer "no".');
     
     for (let i = 0; i < gameAmount; i += 1) { 
-        const question = getRandom(1, 9999);
+        const question = getRandom(1, 100);
         let expectedAnswer = question % 2 === 0 ? 'yes' : 'no';
 
         console.log('Question: ' + question);
