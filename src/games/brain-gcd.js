@@ -1,7 +1,7 @@
 import run from '../index.js';
 import { getRandom } from '../utils.js';
 
-const gameGoal = ('Find the greatest common divisor of given numbers.');
+const gameGoal = 'Find the greatest common divisor of given numbers.';
 const gcd = (x, y) => {
     if (y) {
         return gcd(y, x % y);

@@ -1,7 +1,7 @@
 import run from '../index.js';
 import { getRandom } from '../utils.js';
 
-const gameGoal = ('What is the result of the expression?');
+const gameGoal = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
 const calculatedExpectedAnswer = (selectedOperator, firstNumber, secondNumber) => {
     switch (selectedOperator) {

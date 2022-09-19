@@ -11,3 +11,6 @@ brain-calc
 
 brain-gcd
 <a href="https://asciinema.org/a/522318" target="_blank"><img src="https://asciinema.org/a/522318.svg" /></a>
+
+brain-progression
+<a href="https://asciinema.org/a/522385" target="_blank"><img src="https://asciinema.org/a/522385.svg" /></a>
