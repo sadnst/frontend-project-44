@@ -15,9 +15,10 @@ const calculatedExpectedAnswer = (selectedOperator, firstNumber, secondNumber) =
 };
 
 const generateRound = () => {
-    const firstNumber = getRandom(1, 100);
-    const secondNumber = getRandom(1, 100);
+    const firstNumber = getRandom(1, 10);
+    const secondNumber = getRandom(1, 10);
     const selectedOperator = operators[getRandom(0, operators.length - 1)];
+
     const question = `${firstNumber} ${selectedOperator} ${secondNumber}`;
     const expectedAnswer = String(calculatedExpectedAnswer(selectedOperator, firstNumber, secondNumber));
     return [expectedAnswer, question];
