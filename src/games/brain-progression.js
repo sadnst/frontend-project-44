@@ -17,7 +17,7 @@ const generateRound = () => {
             progression[i] = progressionStart + (i * progressionStep);
     }
     const expectedAnswer = String(progressionStart + (selectedIndex * progressionStep));
-    const question = progression;
+    const question = progression.join(' ');
     return [expectedAnswer, question];
 };
 
