@@ -4,16 +4,16 @@ import getRandom from '../utils.js';
 const gameGoal = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
 /* eslint-disable consistent-return */
-const calcExpectedAnswer = (selectedOperator, firstNumber, secondNumber) => {
-  switch (selectedOperator) {
+const calculate = (operator, x, y) => {
+  switch (operator) {
     case '+':
-      return firstNumber + secondNumber;
+      return x + y;
     case '-':
-      return firstNumber - secondNumber;
+      return x - y;
     case '*':
-      return firstNumber * secondNumber;
+      return x * y;
     default:
-      console.log(`out if ${selectedOperator}`);
+      console.log(`out of ${operator}`);
   }
 };
 
@@ -23,7 +23,7 @@ const generateRound = () => {
   const selectedOperator = operators[getRandom(0, operators.length - 1)];
 
   const question = `${firstNumber} ${selectedOperator} ${secondNumber}`;
-  const expectedAnswer = String(calcExpectedAnswer(selectedOperator, firstNumber, secondNumber));
+  const expectedAnswer = String(calculate(selectedOperator, firstNumber, secondNumber));
   return [expectedAnswer, question];
 };
 
