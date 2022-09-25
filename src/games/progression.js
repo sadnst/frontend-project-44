@@ -17,7 +17,7 @@ const makeProgression = (start, step, selectedIndex) => {
 };
 
 const generateRound = () => {
-  const start = getRandom();
+  const start = getRandom(1, 100);
   const step = getRandom(1, 10);
   const selectedIndex = getRandom(1, length - 1);
 

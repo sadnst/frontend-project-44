@@ -6,8 +6,8 @@ const rule = 'Find the greatest common divisor of given numbers.';
 const gcd = (x, y) => (y === 0 ? x : gcd(y, x % y));
 
 const generateRound = () => {
-  const number1 = getRandom();
-  const number2 = getRandom();
+  const number1 = getRandom(1, 100);
+  const number2 = getRandom(1, 100);
 
   const question = `${number1} ${number2}`;
   const expectedAnswer = String(gcd(number1, number2));
