@@ -4,6 +4,9 @@ import getRandom from '../utils.js';
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
+  if (number === 0) {
+    return false;
+  }
   if (number > 1) {
     for (let i = 2; i < number; i += 1) {
       if (number % i === 0) {
@@ -17,7 +20,7 @@ const isPrime = (number) => {
 const generateRound = () => {
   const number = getRandom(1, 100);
   const question = String(number);
-  const expectedAnswer = String(isPrime(number) ? 'yes' : 'no');
+  const expectedAnswer = isPrime(number) ? 'yes' : 'no';
   return [expectedAnswer, question];
 };
 
