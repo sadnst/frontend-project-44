@@ -1,24 +1,25 @@
 import run from '../index.js';
-import getRandom from '../utils.js';
+import getRandomNumber from '../utils.js';
 
+const minRange = 1;
+const maxRange = 100;
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
-  if (number === 0 || number === 1) {
+  if (number <= 1) {
     return false;
   }
-  if (number > 1) {
-    for (let i = 2; i < number; i += 1) {
-      if (number % i === 0) {
-        return false;
-      }
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) {
+      return false;
     }
   }
   return true;
 };
 
 const generateRound = () => {
-  const number = getRandom(1, 100);
+  const number = getRandomNumber(minRange, maxRange);
+
   const question = String(number);
   const expectedAnswer = isPrime(number) ? 'yes' : 'no';
   return [expectedAnswer, question];

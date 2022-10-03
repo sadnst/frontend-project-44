@@ -1,28 +1,32 @@
 import run from '../index.js';
-import getRandom from '../utils.js';
+import getRandomNumber from '../utils.js';
 
+const minStart = 1;
+const maxStart = 100;
+const minStep = 1;
+const maxStep = 10;
+const minLength = 5;
+const maxLength = 10;
 const rule = 'What number is missing in the progression?';
-const length = getRandom(5, 10);
 
-const makeProgression = (start, step, selectedIndex) => {
+const makeProgression = (start, step, length) => {
   const progression = [];
   for (let i = 0; i < length; i += 1) {
-    if (i === selectedIndex) {
-      progression[i] = '..';
-    } else {
-      progression[i] = start + (i * step);
-    }
+    progression[i] = start + (i * step);
   }
-  return progression.join(' ');
+  return progression;
 };
 
 const generateRound = () => {
-  const start = getRandom(1, 100);
-  const step = getRandom(1, 10);
-  const selectedIndex = getRandom(1, length - 1);
+  const length = getRandomNumber(minLength, maxLength);
+  const start = getRandomNumber(minStart, maxStart);
+  const step = getRandomNumber(minStep, maxStep);
+  const progression = makeProgression(start, step, length);
+  const selectedIndex = getRandomNumber(1, length - 1);
+  const expectedAnswer = String(progression[selectedIndex]);
+  progression[selectedIndex] = '..';
 
-  const expectedAnswer = String(start + (selectedIndex * step));
-  const question = makeProgression(start, step, selectedIndex);
+  const question = String(progression.join(' '));
   return [expectedAnswer, question];
 };
 

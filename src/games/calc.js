@@ -1,10 +1,13 @@
 import run from '../index.js';
-import getRandom from '../utils.js';
+import getRandomNumber from '../utils.js';
 
-const numberRange = (1, 10);
-
+const minRange = 1;
+const maxRange = 100;
 const rule = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
+
+const getRandomIndex = () => operators[getRandomNumber(0, operators.length - 1)];
+
 /* eslint-disable consistent-return */
 const calculate = (operator, x, y) => {
   switch (operator) {
@@ -15,17 +18,17 @@ const calculate = (operator, x, y) => {
     case '*':
       return x * y;
     default:
-      console.log(`out of ${operator}`);
+      throw new Error(`Unknown order state: '${operator}'!`);
   }
 };
 
 const generateRound = () => {
-  const number1 = getRandom(numberRange);
-  const number2 = getRandom(numberRange);
-  const selectedOperator = operators[getRandom(0, operators.length - 1)];
+  const number1 = getRandomNumber(minRange, maxRange);
+  const number2 = getRandomNumber(minRange, maxRange);
+  const operator = getRandomIndex();
 
-  const question = `${number1} ${selectedOperator} ${number2}`;
-  const expectedAnswer = String(calculate(selectedOperator, number1, number2));
+  const question = `${number1} ${operator} ${number2}`;
+  const expectedAnswer = String(calculate(operator, number1, number2));
   return [expectedAnswer, question];
 };
 
