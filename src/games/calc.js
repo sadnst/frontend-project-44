@@ -6,9 +6,6 @@ const maxRange = 100;
 const rule = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
 
-const getRandomIndex = () => operators[getRandomNumber(0, operators.length - 1)];
-
-/* eslint-disable consistent-return */
 const calculate = (operator, x, y) => {
   switch (operator) {
     case '+':
@@ -25,7 +22,7 @@ const calculate = (operator, x, y) => {
 const generateRound = () => {
   const number1 = getRandomNumber(minRange, maxRange);
   const number2 = getRandomNumber(minRange, maxRange);
-  const operator = getRandomIndex();
+  const operator = operators[getRandomNumber(0, operators.length - 1)];
 
   const question = `${number1} ${operator} ${number2}`;
   const expectedAnswer = String(calculate(operator, number1, number2));
